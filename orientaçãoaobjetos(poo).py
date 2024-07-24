@@ -159,3 +159,121 @@ print(f'O raio do circulo é {circulo2.area()}')
 
 """# Herança em Python"""
 
+- Em programação Orientado a Objetos(POO), a herança é um conceito que permite criar novas classes a partir de outros classes existentes, aproveitando atributos e m étodos original e adicionado novos atributos e métodos especificos.
+
+- A classe original é chamada de classe mãe ou superclasse e a classe chamada filha ou subclasse.
+
+- A herança é uma tecnica importante em POO porque permite reutilizar o código de maneria mais eficiente. Em vez de criara uma nova classe do zero. a subclasse pode herdar todos os atributos e métodos da superclasse e adicionar apenas o que é necessario. Dessa forma subclasse pode se concentrar em frnecer funcionalidades adicionais sem precisar se preocupar com as caracteristicas basicas da classe.
+
+- Na herança, uma subclasse pode herdar os atributos e métodos da superclasse e substitui-los ou estendelos conforme o necessario. Por exemplo, uma subclasse por ter um metodo com o mesmo nome de um método da super classe, mas com um comportamento diferente.
+
+
+# Criando a classe Animal - super-classe (mãe)
+class Animal():
+  def __init__(self):
+    print('Objeto Animal criado !')
+
+  def imprimir(self):
+    print('Este é o animal')
+
+  def comer(self):
+    print('Hora de comer')
+
+  def emitir_som(self):
+    #Quando adicionamos o pass indica que dentro do método não existe nada e que o sistema pode seguir.
+    pass
+
+animal1 = Animal()
+
+# Criando a classe Cachorro - sub-classe (filho)
+
+#Cachorro vai ser uma classe filha de Animal ou seja dentro dos (Animal) vai definir os atributos de onde vai herdar.
+class Cachorro(Animal):
+
+  def __init__(self):
+    Animal.__init__(self)
+    print('Objeto cachorro criado.')
+
+  def emitir_som(self):
+    print('Au Au')
+
+cachorro1 = Cachorro()
+
+class Gato(Animal):
+
+  def _init__(self):
+    Animal.__init__(self)
+    print('Objeto gato criado !')
+
+  def emitir_som(self):
+    print('Miau Miua !')
+
+gato1 = Gato()
+
+# Polimorfismo
+
+- Polimorfismo é um dos conceitos fundamentais de programação Orientada a Objetos(POO). O polimorfismo permite que objetos de diferentes classes possam ser tratados de forma uniforme. Isso significa que um objeto pode ser tratado como se fosse um objeto de uma superclasse, mesmo que ele seja de uma subclasse.
+
+- Mais especificamente, o polimorfismo se refere á habilidade de um objeto responder de diferentes formas a mesma mensagem, isso é possivel porque as subclasses podem implementar métodos com o mesmo nome que os métodos de superclasse, mas com comportamentos diferentes.
+
+- Com o polimorfismo, os mesmo atributos e métodos podem ser utilizados em objetos, porém, com implementações lógicas diferentes.
+
+# Superclass
+
+class Veiculo():
+
+  def __init__(self, marca, modelo):
+    self.marca = marca
+    self.modelo = modelo
+  
+  def acelerar(self):
+    pass
+
+  def frear(self):
+    pass
+
+#Subclass
+
+class Carro(Veiculo):
+
+  def acelerar(self):
+    print('O carro esta acelerando')
+
+  def frear(self):
+    print('O carro esta freando')
+
+#Subclass
+
+class Aviao(Veiculo):
+
+  def acelerar(self):
+    print('O avião esta acelerando')
+
+  def frear(self):
+    print('O avião esta freando')
+
+  def decolar(self):
+    print('O avião esta decolando')
+
+# Cria os objetos
+lista_veiculos = [
+    Carro('Porche','911'),
+    Moto('Honda','CBR'),
+    Aviao('Airbus','A320')
+]
+
+#Loop no incide de cada objeto
+
+for item in lista_veiculos:
+  item.acelerar()
+  item.frear()
+  if isinstance(item,Aviao):
+    item.decolar()
+
+  print('-'*3)
+
+
+
+
+
+
